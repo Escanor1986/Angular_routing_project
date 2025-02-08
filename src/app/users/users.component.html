@@ -1,6 +1,9 @@
 <h1 class="m-10">USERS</h1>
 <ul class="m-10 list-primary" *ngIf="users">
   <li *ngFor="let user of users">
-    <a [routerLink]="['/users', user.id]">{{ user.name }}</a>
+    <a
+      (click)="redirection(user)"
+      >{{ user.name }}</a
+    >
   </li>
 </ul>

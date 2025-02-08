@@ -5,10 +5,11 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   selector: 'app-user',
   imports: [],
   templateUrl: './user.component.html',
-  styleUrl: './user.component.scss'
+  styleUrl: './user.component.scss',
 })
 export class UserComponent {
   public id: string | null = null;
+  public name: string | null = null;
 
   constructor(private readonly activatedRoute: ActivatedRoute) {}
 
@@ -17,6 +18,15 @@ export class UserComponent {
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id');
       console.log(params.get('id'));
+    });
+
+    this.activatedRoute.queryParamMap.subscribe((params: ParamMap) => {
+      this.name = params.get('name');
+      console.log(params.get('name'));
+    });
+
+    this.activatedRoute.fragment.subscribe((fragment: string | null) => {
+     return fragment ? console.log(fragment) : null;
     });
   }
 }
