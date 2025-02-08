@@ -8,7 +8,13 @@
       >
         Homepage
       </li>
-      <li routerLink="/users" routerLinkActive="active">Users</li>
+      <li
+        [queryParams]="{ details: true }"
+        routerLink="/users"
+        routerLinkActive="active"
+      >
+        Users
+      </li>
     </ul>
   </nav>
   <div>

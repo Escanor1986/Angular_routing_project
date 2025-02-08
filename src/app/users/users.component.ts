@@ -1,13 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { User } from '../../shared/interfaces/user.interface';
 @Component({
   selector: 'app-users',
-  imports: [RouterLink, CommonModule],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
 })
+
+/** 
+ * The users component.
+ * @class
+ * @implements {OnInit}
+   */
 export class UsersComponent implements OnInit {
   public users: User[] = [
     { id: 1, name: 'John Doe' },
@@ -31,7 +37,7 @@ export class UsersComponent implements OnInit {
    * @returns void
    * @example
    * redirection({ id: 1, name: 'John Doe' });
-   * Redirects to the user page with the query params and fragment.
+   * Redirects to the user page with the query params, fragment, etc...
   */
   public redirection(user: User): void {
     console.log(user);
@@ -39,6 +45,7 @@ export class UsersComponent implements OnInit {
       relativeTo: this.activatedRoute,
       queryParams: { name: user.name },
       fragment: 'user',
+      // To retrieve the query params from the parent route.
       queryParamsHandling: 'merge',
     });
   }

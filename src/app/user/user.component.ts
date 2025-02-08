@@ -10,11 +10,16 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class UserComponent {
   public id: string | null = null;
   public name: string | null = null;
+  public details: string | null = null;
 
+  // Injects the ActivatedRoute service.
   constructor(private readonly activatedRoute: ActivatedRoute) {}
 
+  /** 
+   */
   ngOnInit() {
     console.log('User component initialized...');
+    
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id');
       console.log(params.get('id'));
@@ -22,6 +27,7 @@ export class UserComponent {
 
     this.activatedRoute.queryParamMap.subscribe((params: ParamMap) => {
       this.name = params.get('name');
+      this.details = params.get('details');
       console.log(params.get('name'));
     });
 
