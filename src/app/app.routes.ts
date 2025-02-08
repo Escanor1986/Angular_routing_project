@@ -6,5 +6,5 @@ import { Page404Component } from './page404/page404.component';
 export const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'users', component: UsersComponent },
-  { path: '**', component: Page404Component }
+  { path: '**', component: Page404Component },
 ];

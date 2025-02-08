@@ -1,8 +1,14 @@
 <div style="padding-top: 150px">
   <nav>
     <ul>
-      <li routerLink="/">Homepage</li>
-      <li routerLink="/users">Users</li>
+      <li
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Homepage
+      </li>
+      <li routerLink="/users" routerLinkActive="active">Users</li>
     </ul>
   </nav>
   <div>

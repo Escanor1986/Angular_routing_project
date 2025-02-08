@@ -28,3 +28,12 @@ nav {
     }
   }
 }
+
+.active {
+  background-color: #ccc;
+  border-radius: 5px;
+  color: aqua;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+}
